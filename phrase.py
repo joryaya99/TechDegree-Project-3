@@ -5,6 +5,9 @@ class Phrase:
     def display(self, guesses):
         for letter in self.phrase:
             if letter in guesses:
+                print(f"{letter}", end = " ")
+            else:
+                print("_", end = " ")
     
     def check_letter(self, guess):
     
