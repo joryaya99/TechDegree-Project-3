@@ -20,4 +20,7 @@ class Game:
         return input("\nEnter a letter: ")
         
     def game_over(self):
-        
+        if self.missed >= 5:
+            print("Oh no ! Seems like you've lost !")
+        else:
+            print("Yay !!! Congratulations you've won !!!")
