@@ -10,9 +10,14 @@ class Game:
         self.active_phrase = self.get_random_phrase()
         
     def get_random_phrase(self):
+        random_phrase = random.choice(self.phrases)
+        return random_phrase
         
     def welcome(self):
+        print("----------\n  Welcome to Phrase Hunter\n----------")
         
     def get_guess(self):
+        return input("\nEnter a letter: ")
         
     def game_over(self):
+        
