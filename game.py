@@ -9,7 +9,7 @@ class Game:
         self.phrases = self.create_phrases()
         self.active_phrase = self.get_random_phrase()
     
-    def create_phrases(self):
+    def calls_phrases(self):
         phrases = []
     
     def get_random_phrase(self):
