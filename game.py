@@ -11,7 +11,7 @@ class Game:
     
     def start(self):
         self.welcome()
-        while self.missed
+        while self.missed < 5 and not self.active_phrase.check_complete(self.guesses):
     
     def calls_phrases(self):
         phrases = []
