@@ -11,6 +11,7 @@ class Game:
     
     def start(self):
         self.welcome()
+        while self.missed
     
     def calls_phrases(self):
         phrases = []
