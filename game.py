@@ -22,6 +22,12 @@ class Game:
     
     def calls_phrases(self):
         phrases = []
+        phrases.append(Phrase("Hello world !"))
+        phrases.append(Phrase("How are you ?"))
+        phrases.append(Phrase(""))
+        phrases.append(Phrase())
+        phrases.append(Phrase())
+        return Phrases
     
     def get_random_phrase(self):
         random_phrase = random.choice(self.phrases)
