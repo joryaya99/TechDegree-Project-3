@@ -24,8 +24,8 @@ class Game:
         phrases = []
         phrases.append(Phrase("Hello world !"))
         phrases.append(Phrase("How are you ?"))
-        phrases.append(Phrase(""))
-        phrases.append(Phrase())
+        phrases.append(Phrase("I'm John"))
+        phrases.append(Phrase("It's nice to meet you !"))
         phrases.append(Phrase())
         return Phrases
     
