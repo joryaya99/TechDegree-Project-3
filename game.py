@@ -12,6 +12,13 @@ class Game:
     def start(self):
         self.welcome()
         while self.missed < 5 and not self.active_phrase.check_complete(self.guesses):
+            print(f"\nNumber missed: {self.missed}")
+            self.active_phrase.display(self.guesses)
+            user_guess = self.get_guess()
+            self.guesses.append(user_guess)
+            if not self.active_phrase.check_guess(user_guess):
+                self.missed += 1
+            self.game_over()
     
     def calls_phrases(self):
         phrases = []
