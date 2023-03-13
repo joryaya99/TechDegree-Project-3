@@ -26,7 +26,7 @@ class Game:
         phrases.append(Phrase("How are you ?"))
         phrases.append(Phrase("I'm John"))
         phrases.append(Phrase("It's nice to meet you !"))
-        phrases.append(Phrase())
+        phrases.append(Phrase("What's your favorite color ?"))
         return Phrases
     
     def get_random_phrase(self):
