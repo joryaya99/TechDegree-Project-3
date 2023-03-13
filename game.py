@@ -20,7 +20,7 @@ class Game:
                 self.missed += 1
             self.game_over()
     
-    def calls_phrases(self):
+    def creates_phrases(self):
         phrases = []
         phrases.append(Phrase("Hello world !"))
         phrases.append(Phrase("How are you ?"))
