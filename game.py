@@ -5,11 +5,11 @@ class Game:
 
     def __init__(self):
         self.phrases = ["Hello world !",
-						"How are you ?",
-						"I'm John",
-						"It's nice to meet you !"
-						"What's your favorite color ?"
-					   ]
+			"How are you ?",
+			"I'm John",
+			"It's nice to meet you !"
+			"What's your favorite color ?"
+			]
         self.active_phrase = Phrase(self.phrases[random.randint(0, len(self.phrases) - 1)])
         self.guesses = [' ']
         self.game_continues = True
