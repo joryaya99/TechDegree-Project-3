@@ -2,45 +2,38 @@ from phrase import Phrase
 import random
 
 class Game:
+
     def __init__(self):
+        self.phrases = ["Hello world !",
+						"How are you ?",
+						"I'm John",
+						"It's nice to meet you !"
+						"What's your favorite color ?"
+					   ]
+        self.active_phrase = Phrase(self.phrases[random.randint(0, len(self.phrases) - 1)])
+        self.guesses = [' ']
+        self.game_continues = True
         self.missed = 0
-        self.phrases = []
-        self.guesses = [" "]
-        self.phrases = self.create_phrases()
-        self.active_phrase = self.get_random_phrase()
-    
+
     def start(self):
-        self.welcome()
-        while self.missed < 5 and not self.active_phrase.check_complete(self.guesses):
-            print(f"\nNumber missed: {self.missed}")
-            self.active_phrase.display(self.guesses)
-            user_guess = self.get_guess()
-            self.guesses.append(user_guess)
-            if not self.active_phrase.check_guess(user_guess):
+        print("Welcome to the Phrase Hunter !!!")
+        print("Guess the phrase before you run out of guesses.")
+        print("You have a total of 5 guesses to guess the Phrase.")
+        print("There is no certain format to follow, you do not have to include punctuation in your guesses.")
+        print("However Capitalization is important")
+
+        self.active_phrase.display(self.guesses)
+
+        while self.missed != 5 and self.game_continues:
+            self.attempt = input("\nEnter a letter: ")
+            if self.active_phrase.check_letter(self.attempt):
+                self.guesses.append(self.attempt)
+            else:
                 self.missed += 1
-            self.game_over()
-    
-    def create_phrases(self):
-        phrases = []
-        phrases.append(Phrase("Hello world !"))
-        phrases.append(Phrase("How are you ?"))
-        phrases.append(Phrase("I'm John"))
-        phrases.append(Phrase("It's nice to meet you !"))
-        phrases.append(Phrase("What's your favorite color ?"))
-        return Phrases
-    
-    def get_random_phrase(self):
-        random_phrase = random.choice(self.phrases)
-        return random_phrase
-        
-    def welcome(self):
-        print("----------\n  Welcome to Phrase Hunter\n----------")
-        
-    def get_guess(self):
-        return input("\nEnter a letter: ")
-        
-    def game_over(self):
-        if self.missed >= 5:
-            print("Oh no ! Seems like you've lost !")
-        else:
-            print("Yay !!! Congratulations you've won !!!")
+                print(f"Incorrect! You have {5 - self.missed} out of 5 guesses left.")
+            self.active_phrase.display(self.guesses)
+            if Phrase.check_complete(self, self.active_phrase.chosenPhrase, self.guesses):
+                print("\nYay !!! Congratulations you've won !!!")
+                self.game_continues = False
+        if self.missed == 5:
+            print("\nOh no ! Seems like you've lost !")
