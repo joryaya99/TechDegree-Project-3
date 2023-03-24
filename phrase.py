@@ -1,13 +1,32 @@
-class Phrase():
-    def __init__(self, phrase):
-        self.chosenPhrase = phrase
-
-    def display(self, attempts):
-        for letter in self.chosenPhrase:
-            print(f'{letter}', end=' ') if letter in attempts else print('_', end=' ')
+class Phrase:
     
-    def check_letter(self, attempt):
-        return attempt in self.chosenPhrase
+    def __init__(self, phrase):
+        self.phrase = phrase.lower()
 
-    def check_complete(self, chosenPhrase, attempts):
-        return set(chosenPhrase) == set(attempts)
+
+    def display(self, guesses):
+        print("")
+        for letter in self.phrase:
+            if letter in guesses:
+                print(f'{letter}', end = " ")
+            else:
+                print("_", end = " ")
+        print("")
+        print("")
+
+
+    def check_letter(self, guess):
+        if guess in self.phrase:
+            return True
+        else:
+            return False
+
+
+    def check_complete(self, guesses):
+        for letter in self.phrase:
+            if not letter in guesses:
+                validate = False
+                break
+            else:
+                validate = True
+        return validate
