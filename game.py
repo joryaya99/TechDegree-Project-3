@@ -31,7 +31,7 @@ class Game:
         return phrases
 
 
-    def start(self, user_guess):
+    def start(self):
         self.welcome()
         while self.missed > 0 and not self.active_phrase.check_complete(self.guesses):
             print("~" * 22)
